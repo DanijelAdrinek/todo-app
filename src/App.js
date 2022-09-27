@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { GlobalStyle, ContentContainer } from "./global.styles";
+import AddTodoForm from "./components/form/form.component";
+import TodosContainer from "./components/todos-container/todos-container.component.jsx";
 
+/**
+ * this function renders the whole application and displays it to user's screen
+ * 
+ * @returns {HTMLElement} our application
+ */
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ContentContainer>
+      <GlobalStyle/>
+      <AddTodoForm/>
+      <TodosContainer/>
+    </ContentContainer>
   );
 }
 
