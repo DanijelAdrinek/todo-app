@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-const imageWidthAndHeight = 30;
-
 export const Form = styled.form`
     padding-top: 45px;
     padding-bottom: 22px;
