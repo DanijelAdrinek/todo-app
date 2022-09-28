@@ -1,4 +1,4 @@
-import { TodoStyled, RemoveTodo } from "./todo.styles";
+import { TodoStyled, TodoText, TodoStatus, RemoveTodo } from "./todo.styles";
 import { TODO_STATUSES } from "../../redux/todo/todo-slice";
 
 import { useDispatch } from "react-redux";
@@ -11,8 +11,12 @@ const CHANGE_TODO_STATUS = {
 };
 
 const BACKGROUND_COLORS = {
-    [TODO_STATUSES.inProgress]: 'green',
-    [TODO_STATUSES.done]: 'grey'
+    [TODO_STATUSES.inProgress]: 'grey',
+    [TODO_STATUSES.done]: 'lime'
+};
+
+const COLORS = {
+    [TODO_STATUSES.inProgress]: 'white'
 };
 
 /**
@@ -29,19 +33,31 @@ const Todo = ({id, name, status}) => {
      */
     const removeTodoHandler = () => {
         dispatch(removeTodo(id));
-    }
+    };
 
     /**
      * changes the status of a todo depending on its previous status
      */
-    const TodoClickHandler = () => {
+    const todoClickHandler = () => {
         const newStatus = CHANGE_TODO_STATUS[status];
         dispatch(changeTodoStatus({id, status: newStatus}));
+    };
+
+    const styles = {
+        todoStyles: {
+            backgroundColor: BACKGROUND_COLORS[status] || '',
+            color: COLORS[status] || null
+        }
     }
 
     return (
-        <TodoStyled onClick={TodoClickHandler} backgroundColor={BACKGROUND_COLORS[status] ? BACKGROUND_COLORS[status] : null}>
-            {name}
+        <TodoStyled style={BACKGROUND_COLORS[status] ? styles.todoStyles : null}>
+            <TodoText onClick={todoClickHandler}>
+                {name}
+            
+                <TodoStatus> {status}</TodoStatus>
+            
+            </TodoText>
             <RemoveTodo onClick={removeTodoHandler}>
                 &#10005;
             </RemoveTodo>

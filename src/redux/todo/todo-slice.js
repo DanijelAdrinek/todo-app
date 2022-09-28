@@ -1,11 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-
 /**
  * @typedef {object} ReferenceState state
  */
-
 
 
 /**
@@ -13,7 +10,7 @@ import { createSlice } from "@reduxjs/toolkit";
  */
 export const TODO_STATUSES = {
     todo: 'todo',
-    inProgress: 'inProgress',
+    inProgress: 'in progress',
     done: 'done'
 };
 

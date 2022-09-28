@@ -38,7 +38,7 @@ const AddTodoForm = () => {
     };
 
     /**
-     * handles the form submit
+     * handles the form submit, and sets the value of the input field to an empty string
      * 
      * @param {Event} e 
      */
@@ -53,6 +53,9 @@ const AddTodoForm = () => {
 
             const todo = {id, name, status};
             dispatch(addTodo(todo));
+            setValue('');
+        } else {
+            alert('input field cannot be empty!');
         }
     };
 
@@ -66,13 +69,13 @@ const AddTodoForm = () => {
 
         const IDs = Object.keys(todos);
         const lastID = IDs.pop();
-        dispatch(removeTodo(lastID))
+        dispatch(removeTodo(lastID));
     }
 
     return (
         <Form onSubmit={formSubmitHandler}>
             <TextInputAndUndoContainer>
-                <TextInput type="text" name="todo" placeholder="Todo" onChange={onChangeHandler}/>
+                <TextInput type="text" name="todo" placeholder="Todo" value={value} onChange={onChangeHandler}/>
                 
                 {/* only show undo if todos are available in the state */}
                 {

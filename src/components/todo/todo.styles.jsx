@@ -6,12 +6,10 @@ const borderWidth = 1;
 export const TodoStyled = styled.li`
     width: 100%;
     min-height: ${todoHeight}px;
-    height: ${todoHeight}px;
     max-height: max-content;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding-left: 20px;
+
     font-size: 18px;
     border: ${borderWidth}px solid rgba(155,155,155, 0.3);
     user-select: none;
@@ -27,26 +25,33 @@ export const TodoStyled = styled.li`
         cursor: pointer;
         background-color: #ddd;
     }
-
-    ${props => {
-    const { backgroundColor } = props;
-
-    backgroundColor && css`
-         background-color: ${backgroundColor} !important;
-        `}
-    };
 `;
 
-// export const TodoText = styled.p`
-//     max-width: 70%;
-//     height: max-content;
-//     word-wrap: break-word;
-//     margin: 0;
-// `;
+export const TodoText = styled.p`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    word-wrap: break-word;
+    word-break: break-all;
+    margin: 0;
+    padding-left: 25px;
+`;
+
+export const TodoStatus = styled.span`
+    display: flex;
+    align-items: center;
+    margin-left: 6px;
+    font-size: 12px;
+    font-style: italic;
+    min-width: max-content;
+
+    &::before {
+        content: '-';
+    }
+`;
 
 export const RemoveTodo = styled.div`
     width: ${todoHeight - borderWidth*2}px;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
