@@ -56,6 +56,7 @@ export const RemoveTodo = styled.div`
     align-items: center;
     justify-content: center;
     user-select: none;
+    transition: all 0.1s ease-in-out;
 
     &:hover {
         background-color: red;

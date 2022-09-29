@@ -1,26 +1,12 @@
 import styled from "styled-components";
 
-export const Form = styled.form`
-    padding-top: 45px;
-    padding-bottom: 22px;
+export const UndoAndFilterContainer = styled.div`
     display: flex;
-    flex-direction: column;
+    width: 100%;
+    height: 60px;
     align-items: center;
-    background-color: red;
-`;
-
-export const TextInputAndUndoContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-`;
-
-export const TextInput = styled.input`
-    width: calc(150px + 40%);
-    max-width: 90%;
-    padding: 7px;
-    font-size: 16px;
+    border-bottom: 2px solid lightgrey;
+    background-color: lightgrey;
 `;
 
 export const Tooltip = styled.span`
@@ -59,7 +45,7 @@ export const Undo = styled.button`
     background-color: grey;
     width: 33px;
     height: 33px;
-    margin-left: 10px;
+    margin-left: 50px;
     border-width: 2px;
 
     &:hover {
@@ -77,18 +63,9 @@ export const UndoImage = styled.img`
     height: 22px;
 `;
 
-export const SubmitInput = styled.input`
-    display: block;
-    width: max-content;
-    padding: 13px 26px;
-    color: white;
-    background-color: #007bff;
-    font-size: 18px;
-    border: 1px solid black;
-    border-radius: 5px;
-
-    &:hover {
-        background-color: #0069dd;
-        cursor: pointer;
-    };
+export const SelectorGroup = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: 30px;
 `;

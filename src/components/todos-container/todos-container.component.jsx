@@ -2,6 +2,7 @@ import { ContainerStyles, Title } from "./todos-container.styles.jsx";
 import Todo from "../todo/todo.component.jsx";
 
 import { useSelector } from "react-redux";
+import { TODO_FILTERS } from "../../redux/todo/todo-slice.js";
 
 /**
  * returns and renders the todo list container
@@ -9,19 +10,27 @@ import { useSelector } from "react-redux";
  * @returns {HTMLElement} todos list container
  */
 export const TodosContainer = () => {
-    const todosObject = useSelector(state => state.todos.value);
+    const todoState = useSelector(state => state.todos);
+    const filter = todoState.filter;
+    const allTodos = todoState.todos;
     
-    const todos = Object.entries(todosObject);
+    const filterTodosByStatus = () => {
+        if(filter !== TODO_FILTERS.all) {
+            return allTodos.filter(todo => todo.status === filter);
+        };
+        return allTodos;
+    };
+    
+    const filteredTodos = filterTodosByStatus();
 
     return (
         <ContainerStyles>
-            <li><Title>Todo's</Title></li>
+            <li><Title>To-do's</Title></li>
             
             {
                 // mapping the todo's array and returning Todo's
-                todos.map(todo => {
-                    const id = todo[0];
-                    const {name, status} = todo[1];
+                filteredTodos.map(todo => {
+                    const {id, name, status} = todo;
 
                     return <Todo key={id} id={id} name={name} status={status} />;
                 })

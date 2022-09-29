@@ -1,5 +1,6 @@
 import { GlobalStyle, ContentContainer } from "./global.styles";
-import AddTodoForm from "./components/form/form.component";
+import AddTodoForm from "./components/add-todo-form/add-todo-form.component";
+import UndoAndFilter from "./components/undo-and-filter/undo-and-filter.component";
 import TodosContainer from "./components/todos-container/todos-container.component.jsx";
 
 /**
@@ -12,6 +13,7 @@ function App() {
     <ContentContainer>
       <GlobalStyle/>
       <AddTodoForm/>
+      <UndoAndFilter/>
       <TodosContainer/>
     </ContentContainer>
   );
